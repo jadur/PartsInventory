@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewController.ModifyProductMenuController">
+   <children>
+      <VBox prefHeight="500.0" prefWidth="880.0" style="-fx-background-color: lightgrey;">
+         <children>
+            <HBox prefHeight="480.0" prefWidth="880.0" spacing="30.0" style="-fx-border-radius: 5; -fx-border-color: gray;">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="260.0" spacing="45.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label text="Modify Product" textFill="#1f1fbf">
+                           <padding>
+                              <Insets left="25.0" top="40.0" />
+                           </padding>
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <GridPane vgap="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="68.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="182.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="ID" />
+                              <Label text="Name" GridPane.rowIndex="1" />
+                              <Label text="Inv" GridPane.rowIndex="2" />
+                              <Label text="Price" GridPane.rowIndex="3" />
+                              <Label text="Max" GridPane.rowIndex="4" />
+                              <TextField fx:id="modifyProductIDTxt" maxWidth="-Infinity" prefWidth="182.0" GridPane.columnIndex="1" />
+                              <TextField fx:id="modifyProductNameTxt" maxWidth="-Infinity" prefWidth="182.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="modifyProductInvTxt" maxWidth="-Infinity" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="modifyProductPriceTxt" maxWidth="-Infinity" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <children>
+                                    <TextField fx:id="modifyProductMaxTxt" prefHeight="25.0" prefWidth="75.0" />
+                                    <Label text="Min">
+                                       <padding>
+                                          <Insets left="5.0" right="6.0" />
+                                       </padding>
+                                    </Label>
+                                    <TextField fx:id="modifyProductMinTxt" prefWidth="75.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="510.0" spacing="10.0">
+                     <children>
+                        <HBox prefHeight="80.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onActionSearchModProd" text="Search">
+                                 <HBox.margin>
+                                    <Insets left="150.0" right="10.0" top="40.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <TextField fx:id="modifyProductSearchTxt">
+                                 <HBox.margin>
+                                    <Insets top="40.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="addModProdTable" maxHeight="-Infinity" prefHeight="130.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="modPartIDCol" prefWidth="120.0" text="Part ID" />
+                            <TableColumn fx:id="modPartNameCol" prefWidth="120.0" text="Part Name" />
+                              <TableColumn fx:id="modPartInvLvlCol" prefWidth="120.0" text="Inventory Level" />
+                              <TableColumn fx:id="modPartPPUCol" prefWidth="120.0" text="Price Per Unit" />
+                          </columns>
+                        </TableView>
+                        <Button alignment="CENTER" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onActionAddAddProd" prefWidth="60.0" text="Add">
+                           <VBox.margin>
+                              <Insets left="400.0" />
+                           </VBox.margin>
+                        </Button>
+                        <TableView fx:id="deleteModProdTable" layoutX="25.0" layoutY="115.0" maxHeight="-Infinity" prefHeight="130.0" prefWidth="200.0">
+                           <columns>
+                              <TableColumn fx:id="delPartIDCol" prefWidth="120.0" text="Part ID" />
+                              <TableColumn fx:id="delPartNameCol" prefWidth="120.0" text="Part Name" />
+                              <TableColumn fx:id="delPartInvLvlCol" prefWidth="120.0" text="Inventory Level" />
+                              <TableColumn fx:id="delPartPPUCol" prefWidth="120.0" text="Price Per Unit" />
+                           </columns>
+                        </TableView>
+                        <Button alignment="CENTER" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onActionDeleteModProd" prefWidth="60.0" text="Delete">
+                           <VBox.margin>
+                              <Insets left="400.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button alignment="CENTER" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onActionSaveModProd" prefWidth="60.0" text="Save" />
+                              <Button alignment="CENTER" maxHeight="-Infinity" mnemonicParsing="false" onAction="#onActionCancelModProd" prefWidth="60.0" text="Cancel" />
+                           </children>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" right="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
